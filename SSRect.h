@@ -13,7 +13,7 @@
 
 @interface SSRect : NSObject {
 @private
-    id receiever;
+    id receiver;
     NSString *key;
     const char *objCType;
     BOOL grouping;

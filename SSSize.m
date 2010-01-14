@@ -11,13 +11,13 @@
 
 @implementation SSSize
 
-- (id)initWithReceiever:(id)inReceiever key:(NSString *)inKey
+- (id)initWithReceiver:(id)inReceiver key:(NSString *)inKey
 {
     if ((self = [super init])) {
-        receiever = [inReceiever retain];
+        receiver = [inReceiver retain];
         key = [inKey copy];
         
-        NSValue *value = [inReceiever valueForKey:inKey];
+        NSValue *value = [inReceiver valueForKey:inKey];
         if ([value isKindOfClass:[NSValue class]]) {
             if (strcmp([value objCType], @encode(NSSize)) == 0) {
                 objCType = @encode(NSSize);
@@ -43,7 +43,7 @@
     return self;
 }
 
-- (void)notifyReceiever    
+- (void)notifyReceiver    
 {
     if (!grouping) {
         if (rect) {
@@ -53,7 +53,7 @@
             [rect commitGroup];
         } else if (strcmp(objCType, @encode(NSSize)) == 0) {
             NSValue *value = [NSValue valueWithSize:NSMakeSize(width, height)];
-            [receiever setValue:value forKey:key];
+            [receiver setValue:value forKey:key];
         }
     }
 }
@@ -66,14 +66,14 @@
 - (void)commitGroup
 {
     grouping = NO;
-    [self notifyReceiever];
+    [self notifyReceiver];
 }
 
 - (CGFloat)width { return width; }
-- (void)setWidth:(CGFloat)inWidth { width = inWidth; [self notifyReceiever]; }
+- (void)setWidth:(CGFloat)inWidth { width = inWidth; [self notifyReceiver]; }
 
 - (CGFloat)height { return height; }
-- (void)setHeight:(CGFloat)inHeight { height = inHeight; [self notifyReceiever]; }
+- (void)setHeight:(CGFloat)inHeight { height = inHeight; [self notifyReceiver]; }
 
 @end
 
@@ -81,7 +81,7 @@
 
 - (SSSize *)mutableSizeValueForKey:(NSString *)key
 {
-    return [[[SSSize alloc] initWithReceiever:self key:key] autorelease];
+    return [[[SSSize alloc] initWithReceiver:self key:key] autorelease];
 }
 
 @end

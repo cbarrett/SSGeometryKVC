@@ -11,13 +11,13 @@
 
 @implementation SSPoint
 
-- (id)initWithReceiever:(id)inReceiever key:(NSString *)inKey
+- (id)initWithReceiver:(id)inReceiver key:(NSString *)inKey
 {
     if ((self = [super init])) {
-        receiever = [inReceiever retain];
+        receiver = [inReceiver retain];
         key = [inKey copy];
         
-        NSValue *value = [inReceiever valueForKey:inKey];
+        NSValue *value = [inReceiver valueForKey:inKey];
         if ([value isKindOfClass:[NSValue class]]) {
             if (strcmp([value objCType], @encode(NSPoint)) == 0) {
                 objCType = @encode(NSPoint);
@@ -43,7 +43,7 @@
     return self;
 }
 
-- (void)notifyReceiever    
+- (void)notifyReceiver    
 {
     if (!grouping) {
         if (rect) {
@@ -53,7 +53,7 @@
             [rect commitGroup];
         } else if (strcmp(objCType, @encode(NSPoint)) == 0) {
             NSValue *value = [NSValue valueWithPoint:NSMakePoint(x, y)];
-            [receiever setValue:value forKey:key];
+            [receiver setValue:value forKey:key];
         }
     }
 }
@@ -66,14 +66,14 @@
 - (void)commitGroup
 {
     grouping = NO;
-    [self notifyReceiever];
+    [self notifyReceiver];
 }
 
 - (CGFloat)x { return x; }
-- (void)setX:(CGFloat)inX { x = inX; [self notifyReceiever]; }
+- (void)setX:(CGFloat)inX { x = inX; [self notifyReceiver]; }
 
 - (CGFloat)y { return y; }
-- (void)setY:(CGFloat)inY { y = inY; [self notifyReceiever]; }
+- (void)setY:(CGFloat)inY { y = inY; [self notifyReceiver]; }
 
 @end
 
@@ -82,7 +82,7 @@
 
 - (SSPoint *)mutablePointValueForKey:(NSString *)key
 {
-    return [[[SSPoint alloc] initWithReceiever:self key:key] autorelease];
+    return [[[SSPoint alloc] initWithReceiver:self key:key] autorelease];
 }
 
 @end

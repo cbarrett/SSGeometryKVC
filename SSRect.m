@@ -16,13 +16,13 @@
 
 @implementation SSRect
 
-- (id)initWithReceiever:(id)inReceiever key:(NSString *)inKey
+- (id)initWithReceiver:(id)inReceiver key:(NSString *)inKey
 {
     if ((self = [super init])) {
-        receiever = [inReceiever retain];
+        receiver = [inReceiver retain];
         key = [inKey copy];
         
-        NSValue *value = [inReceiever valueForKey:inKey];
+        NSValue *value = [inReceiver valueForKey:inKey];
         if ([value isKindOfClass:[NSValue class]]) {
             if (strcmp([value objCType], @encode(NSRect)) == 0) {
                 objCType = @encode(NSRect);
@@ -39,11 +39,11 @@
     return self;
 }
 
-- (void)notifyReceiever
+- (void)notifyReceiver
 {
     if (!grouping && strcmp(objCType, @encode(NSRect)) == 0) {
         NSValue *value = [NSValue valueWithRect:NSMakeRect(x, y, width, height)];
-        [receiever setValue:value forKey:key];
+        [receiver setValue:value forKey:key];
     }
 }
 
@@ -55,26 +55,26 @@
 - (void)commitGroup
 {
     grouping = NO;
-    [self notifyReceiever];
+    [self notifyReceiver];
 }
 
 - (CGFloat)x { return x; }
-- (void)setX:(CGFloat)inX { x = inX; [self notifyReceiever]; }
+- (void)setX:(CGFloat)inX { x = inX; [self notifyReceiver]; }
 
 - (CGFloat)y { return y; }
-- (void)setY:(CGFloat)inY { y = inY; [self notifyReceiever]; }
+- (void)setY:(CGFloat)inY { y = inY; [self notifyReceiver]; }
 
 - (CGFloat)width { return width; }
-- (void)setWidth:(CGFloat)inWidth { width = inWidth; [self notifyReceiever]; }
+- (void)setWidth:(CGFloat)inWidth { width = inWidth; [self notifyReceiver]; }
 
 - (CGFloat)height { return height; }
-- (void)setHeight:(CGFloat)inHeight { height = inHeight; [self notifyReceiever]; }
+- (void)setHeight:(CGFloat)inHeight { height = inHeight; [self notifyReceiver]; }
 
 - (NSPoint)origin { return NSMakePoint(x, y); }
-- (void)setOrigin:(NSPoint)inOrigin { x = inOrigin.x; y = inOrigin.y; [self notifyReceiever]; }
+- (void)setOrigin:(NSPoint)inOrigin { x = inOrigin.x; y = inOrigin.y; [self notifyReceiver]; }
 
 - (NSSize)size { return NSMakeSize(width, height); }
-- (void)setSize:(NSSize)inSize { width = inSize.width; height = inSize.height; [self notifyReceiever]; }
+- (void)setSize:(NSSize)inSize { width = inSize.width; height = inSize.height; [self notifyReceiver]; }
 
 - (CGPoint)originAsCGPoint { return NSPointToCGPoint([self origin]); }
 - (void)setOriginAsCGPoint:(CGPoint)inCGPoint { [self setOrigin:NSPointFromCGPoint(inCGPoint)]; }
@@ -100,7 +100,7 @@
 
 - (SSRect *)mutableRectValueForKey:(NSString *)key
 {
-    return [[[SSRect alloc] initWithReceiever:self key:key] autorelease];
+    return [[[SSRect alloc] initWithReceiver:self key:key] autorelease];
 }
 
 @end
