@@ -1,0 +1,16 @@
+syntax: glob
+
+.DS_Store
+dist
+*.egg-info
+*.swp
+*~.nib
+
+build
+
+*.pbxuser
+*.perspective
+*.perspectivev3
+*.mode1v3
+
+*.pyc
