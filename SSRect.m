@@ -24,9 +24,9 @@
         
         NSValue *value = [inReceiver valueForKey:inKey];
         if ([value isKindOfClass:[NSValue class]]) {
-            if (strcmp([value objCType], @encode(NSRect)) == 0) {
-                objCType = @encode(NSRect);
-                NSRect buffer;
+            if (strcmp([value objCType], @encode(NSCGRect)) == 0) {
+                objCType = @encode(NSCGRect);
+                NSCGRect buffer;
                 [value getValue:&buffer];
                 x = buffer.origin.x;
                 y = buffer.origin.y;
@@ -41,8 +41,8 @@
 
 - (void)notifyReceiver
 {
-    if (!grouping && strcmp(objCType, @encode(NSRect)) == 0) {
-        NSValue *value = [NSValue valueWithRect:NSMakeRect(x, y, width, height)];
+    if (!grouping && objCType && strcmp(objCType, @encode(NSCGRect)) == 0) {
+        NSValue *value = [NSValue valueWithNSCGRect:NSCGRectMake(x, y, width, height)];
         [receiver setValue:value forKey:key];
     }
 }
@@ -70,17 +70,11 @@
 - (CGFloat)height { return height; }
 - (void)setHeight:(CGFloat)inHeight { height = inHeight; [self notifyReceiver]; }
 
-- (NSPoint)origin { return NSMakePoint(x, y); }
-- (void)setOrigin:(NSPoint)inOrigin { x = inOrigin.x; y = inOrigin.y; [self notifyReceiver]; }
+- (NSCGPoint)origin { return NSCGPointMake(x, y); }
+- (void)setOrigin:(NSCGPoint)inOrigin { x = inOrigin.x; y = inOrigin.y; [self notifyReceiver]; }
 
-- (NSSize)size { return NSMakeSize(width, height); }
-- (void)setSize:(NSSize)inSize { width = inSize.width; height = inSize.height; [self notifyReceiver]; }
-
-- (CGPoint)originAsCGPoint { return NSPointToCGPoint([self origin]); }
-- (void)setOriginAsCGPoint:(CGPoint)inCGPoint { [self setOrigin:NSPointFromCGPoint(inCGPoint)]; }
-
-- (CGSize)sizeAsCGSize { return NSSizeToCGSize([self size]); }
-- (void)setSizeAsCGSize:(CGSize)inCGSize { [self setSize:NSSizeFromCGSize(inCGSize)]; }
+- (NSCGSize)size { return NSCGSizeMake(width, height); }
+- (void)setSize:(NSCGSize)inSize { width = inSize.width; height = inSize.height; [self notifyReceiver]; }
 
 #pragma mark -
 

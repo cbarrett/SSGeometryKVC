@@ -6,7 +6,13 @@
 //  Copyright 2010 Springs & Struts. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#ifdef __IPHONE_OS_VERSION_MIN_REQUIRED
+#   import <UIKit/UIKit.h>
+#elif defined(__MAC_OS_X_VERSION_MIN_REQUIRED)
+#   import <Cocoa/Cocoa.h>
+#endif
+
+#import "SSGeometryCompatibility.h"
 
 @class SSPoint;
 @class SSSize;
@@ -29,11 +35,8 @@
 @property (nonatomic, assign) CGFloat width;
 @property (nonatomic, assign) CGFloat height;
 
-@property (nonatomic, assign) NSPoint origin;
-@property (nonatomic, assign) NSSize size;
-
-@property (nonatomic, assign) CGPoint originAsCGPoint;
-@property (nonatomic, assign) CGSize sizeAsCGSize;
+@property (nonatomic, assign) NSCGPoint origin;
+@property (nonatomic, assign) NSCGSize size;
 
 @property (nonatomic, assign, readonly) SSPoint *mutableOrigin;
 @property (nonatomic, assign, readonly) SSSize *mutableSize;

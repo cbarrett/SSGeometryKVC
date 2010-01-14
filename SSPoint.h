@@ -6,7 +6,12 @@
 //  Copyright 2010 Springs & Struts. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#ifdef __IPHONE_OS_VERSION_MIN_REQUIRED
+#   import <UIKit/UIKit.h>
+#elif defined(__MAC_OS_X_VERSION_MIN_REQUIRED)
+#   import <Cocoa/Cocoa.h>
+#endif
+#import "SSGeometryCompatibility.h"
 
 @class SSRect;
 

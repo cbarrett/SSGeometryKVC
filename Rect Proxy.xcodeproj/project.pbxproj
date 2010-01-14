@@ -12,6 +12,7 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		EF58C3E810FF0297005EE407 /* SSGeometryCompatibility.m in Sources */ = {isa = PBXBuildFile; fileRef = EF58C3E710FF0297005EE407 /* SSGeometryCompatibility.m */; };
 		EFC8E9F410FEB5730039ADBB /* SSRect.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC8E9F310FEB5730039ADBB /* SSRect.m */; };
 		EFC8EA9810FEC3E30039ADBB /* SSPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC8EA9710FEC3E30039ADBB /* SSPoint.m */; };
 		EFC8EB0110FEC8D40039ADBB /* SSSize.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC8EB0010FEC8D40039ADBB /* SSSize.m */; };
@@ -30,6 +31,8 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* Rect_Proxy-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Rect_Proxy-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Rect Proxy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rect Proxy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF58C3E610FF0297005EE407 /* SSGeometryCompatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSGeometryCompatibility.h; sourceTree = "<group>"; };
+		EF58C3E710FF0297005EE407 /* SSGeometryCompatibility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSGeometryCompatibility.m; sourceTree = "<group>"; };
 		EFC8E9F210FEB5730039ADBB /* SSRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSRect.h; sourceTree = "<group>"; };
 		EFC8E9F310FEB5730039ADBB /* SSRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSRect.m; sourceTree = "<group>"; };
 		EFC8EA9610FEC3E30039ADBB /* SSPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPoint.h; sourceTree = "<group>"; };
@@ -63,6 +66,8 @@
 				EFC8EA9710FEC3E30039ADBB /* SSPoint.m */,
 				EFC8EAFF10FEC8D40039ADBB /* SSSize.h */,
 				EFC8EB0010FEC8D40039ADBB /* SSSize.m */,
+				EF58C3E610FF0297005EE407 /* SSGeometryCompatibility.h */,
+				EF58C3E710FF0297005EE407 /* SSGeometryCompatibility.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -193,6 +198,7 @@
 				EFC8E9F410FEB5730039ADBB /* SSRect.m in Sources */,
 				EFC8EA9810FEC3E30039ADBB /* SSPoint.m in Sources */,
 				EFC8EB0110FEC8D40039ADBB /* SSSize.m in Sources */,
+				EF58C3E810FF0297005EE407 /* SSGeometryCompatibility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

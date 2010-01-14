@@ -19,9 +19,9 @@
         
         NSValue *value = [inReceiver valueForKey:inKey];
         if ([value isKindOfClass:[NSValue class]]) {
-            if (strcmp([value objCType], @encode(NSPoint)) == 0) {
-                objCType = @encode(NSPoint);
-                NSPoint buffer;
+            if (strcmp([value objCType], @encode(NSCGPoint)) == 0) {
+                objCType = @encode(NSCGPoint);
+                NSCGPoint buffer;
                 [value getValue:&buffer];
                 x = buffer.x;
                 y = buffer.y;
@@ -51,8 +51,8 @@
             rect.x = x;
             rect.y = y;
             [rect commitGroup];
-        } else if (strcmp(objCType, @encode(NSPoint)) == 0) {
-            NSValue *value = [NSValue valueWithPoint:NSMakePoint(x, y)];
+        } else if (objCType && strcmp(objCType, @encode(NSCGPoint)) == 0) {
+            NSValue *value = [NSValue valueWithNSCGPoint:NSCGPointMake(x, y)];
             [receiver setValue:value forKey:key];
         }
     }

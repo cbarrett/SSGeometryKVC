@@ -19,9 +19,9 @@
         
         NSValue *value = [inReceiver valueForKey:inKey];
         if ([value isKindOfClass:[NSValue class]]) {
-            if (strcmp([value objCType], @encode(NSSize)) == 0) {
-                objCType = @encode(NSSize);
-                NSSize buffer;
+            if (strcmp([value objCType], @encode(NSCGSize)) == 0) {
+                objCType = @encode(NSCGSize);
+                NSCGSize buffer;
                 [value getValue:&buffer];
                 width = buffer.width;
                 height = buffer.height;
@@ -51,8 +51,8 @@
             rect.width = width;
             rect.height = height;
             [rect commitGroup];
-        } else if (strcmp(objCType, @encode(NSSize)) == 0) {
-            NSValue *value = [NSValue valueWithSize:NSMakeSize(width, height)];
+        } else if (objCType && strcmp(objCType, @encode(NSCGSize)) == 0) {
+            NSValue *value = [NSValue valueWithNSCGSize:NSCGSizeMake(width, height)];
             [receiver setValue:value forKey:key];
         }
     }
