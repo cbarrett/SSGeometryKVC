@@ -3,7 +3,7 @@
 //  SSGeometryKVC iPhone
 //
 //  Created by Colin Barrett on 1/13/10.
-//  Copyright __MyCompanyName__ 2010. All rights reserved.
+//  Copyright Springs & Struts 2010. All rights reserved.
 //
 
 #import "SSGeometryKVC_iPhoneAppDelegate.h"
