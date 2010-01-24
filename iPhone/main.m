@@ -1,6 +1,6 @@
 //
 //  main.m
-//  Rect Proxy iPhone
+//  SSGeometryKVC iPhone
 //
 //  Created by Colin Barrett on 1/13/10.
 //  Copyright __MyCompanyName__ 2010. All rights reserved.

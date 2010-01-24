@@ -1,15 +1,15 @@
 //
-//  Rect_Proxy_iPhoneAppDelegate.m
-//  Rect Proxy iPhone
+//  SSGeometryKVC_iPhoneAppDelegate.m
+//  SSGeometryKVC iPhone
 //
 //  Created by Colin Barrett on 1/13/10.
 //  Copyright __MyCompanyName__ 2010. All rights reserved.
 //
 
-#import "Rect_Proxy_iPhoneAppDelegate.h"
+#import "SSGeometryKVC_iPhoneAppDelegate.h"
 #import "SSGeometry.h"
 
-@implementation Rect_Proxy_iPhoneAppDelegate
+@implementation SSGeometryKVC_iPhoneAppDelegate
 
 @synthesize window;
 
