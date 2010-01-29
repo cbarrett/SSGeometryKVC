@@ -8,8 +8,8 @@ Normally to manipulate the frame of a view, you have to do all this work!
 
 With SSGeometryKVC, this is now one line (as long as the class is KVC compliant).
 
-    [view mutableRectForKey:@"frame"].x = 5;
+    [view mutableRectValueForKey:@"frame"].x = 5;
     
-Cocoaheads will notice that the similarity to KVC's -mutableArrayForKey:. The similarity is intentional. Anyway, that's just one example of what you can do. At this point, the best documentation is the headers. Feel free to contribute docs, improvements, etc.
+Cocoaheads will notice that the similarity to KVC's -mutableArrayValueForKey:. The similarity is intentional. Anyway, that's just one example of what you can do. At this point, the best documentation is the headers. Feel free to contribute docs, improvements, etc.
 
 This project lives on both Bitbucket (http://bitbucket.org/cbarrett/ssgeometrykvc) and Github (http://github.com/cbarrett/ssgeometrykvc/). Feel free to contribute to either one. I personally use Mercurial; Git support brought to you through hg-git (http://bitbucket.org/durin42/hg-git/).
